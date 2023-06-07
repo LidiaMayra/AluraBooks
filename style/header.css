@@ -1,0 +1,158 @@
+.cabecalho {
+    background-color: var(--cor--branca);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /*Libera a opção de colocar em cima, embaixo ou dos lados*/
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.cabecalho__menu-hamburguer {
+    width: 24px;
+    height: 24px;
+    background-image: url("../Image/Menu.svg"); /*É preciso colocar os ".." para o programa entender que tem que voltar na pasta image e procurar o arquivo*/
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;    
+}
+
+.container__imagem {
+    padding: 1em;
+}
+
+.container__lista-menu {
+    display: none;
+    position: absolute; /*Se movimenta de acordo com outro elemento que veio antes que esteja em posição diferente da padrão que é o estático*/
+    top: 100%; /*Fez com que a lista saísse de cima do menu*/
+    width: 60vw;
+}
+
+.container__botao:checked ~ .container__lista-menu { /* "checked"= Detecta se foi clicado, "~"=Interliga -> Se...então*/
+    display: block;
+}
+
+.container__botao {
+    display: none; /*Retira o quadradinho que aperta para mostrar a lista*/
+}
+
+.container__lista-menu-titulo, .container__lista-menu-item {
+    background-color: var(--cor--branca);
+    padding: 1em;
+}
+
+.container__lista-menu-titulo {
+    color: var(--cor--laranja);
+    font-weight: 700;
+}
+
+.container__lista-menu-link {
+    background: var(--cor--azul--degrade);
+    -webkit-background-clip: text; /*Aplica a cor somente onde tem texto*/
+    -webkit-text-fill-color: transparent; /*webkit é para funcionar em outros tipos de navegadores*/
+    background-clip: text; /*Aplica a cor somente onde tem texto*/
+}
+
+.container__botao:checked~.container__rotulo>.cabecalho__menu-hamburguer { /*O sistema irá detectar SE o botão está pressionado para ENTÃO poder executar as ações (Ele vai procurar dentro do container__rotulo o cabecalho__menu-hamburguer */
+    background-image: url("../Image/Menu\ Aberto.svg");
+}
+
+.container__botao:checked~.container__rotulo {
+    background: var(--cor--azul--degrade);
+}
+
+.container__titulo, .opcoes, .container__texto  {
+    display: none;
+}
+
+
+@media screen and (min-width:1024px) { /*O max é ideal para quando temos um layout Desktop e o min quando começamos pelo mobile */
+
+    .cabecalho__menu-hamburguer, .container__imagem-coracao  {
+        display: none;
+    }
+    
+    .container__titulo,
+    .container__titulo-negrito { 
+        font-family: var(--fonte--secundaria);
+        font-size: 30px;
+    }
+
+    .container__titulo {
+        font-weight: 400;
+        display: block; /*Faz aparecer o título*/
+    }
+
+    .container__titulo-negrito {
+        font-weight: 700;
+    }
+
+    .opcoes{
+        display: flex;
+    }
+
+    .opcoes__item{
+        padding: 0 1em;
+    }
+
+    .opcoes__link {
+        text-decoration: none;
+        color: var(--cor--preta);
+
+    }
+
+    .opcoes__botao:checked ~ .container__lista-menu {
+        display: block;
+        width: auto;
+    }
+
+   .opcoes__botao {
+    display: none;
+   }
+
+   .opcoes__botao:checked~.opcoes__rotulo>.opcoes__item {
+        color: var(--cor--branca);
+        background: var(--cor--azul--degrade);
+   }
+
+   .opcoes__item {
+        padding: 2em 1em;
+   }
+
+   .container__lista-menu-item:hover {     /*Estiliza um link ao passar o mouse sobre ele*/
+        background: var(--cor--azul--degrade);
+   }
+
+   .container__lista-menu-item:hover > .container__lista-menu-link {
+        -webkit-text-fill-color: var(--cor--branca);
+        text-decoration: none;
+   }
+}
+
+@media screen and (min-width:1728px) {
+
+    .container__texto {
+        display: block;
+    }
+    
+    .cabecalho {
+        padding: 1em;
+    }
+
+
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 20px;
+        color: var(--cor--preta);
+    }
+
+    .opcoes {
+        margin-right: auto; /*Empurrou todos os itens para a esquerda*/
+    }
+
+}

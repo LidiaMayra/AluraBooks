@@ -1,0 +1,61 @@
+.carrossel__titulo {
+    background-color: var(--cor--branca);
+    color: var(--cor--laranja);
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 1em 0 0.5em 0;
+}
+
+.swiper-slide img {
+    width: 100%;
+}
+
+.swiper-button-prev, .swiper-button-next {
+    display: none;
+}
+
+.swiper-pagination {
+    position: initial; /*Colocou as bolinhas em cima dos livros, não embaixo*/
+    margin: 0.5em 0;
+}
+
+@media screen and (min-width:1024px) {
+
+    .carrossel__titulo {
+        font-size: 26px;
+        padding: 2em 0 1em 0;
+    }
+
+    .swiper {
+        width: 60%;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+        display: block;
+        background: var(--cor--azul--degrade);
+        top: 60%;
+    }
+
+    .swiper-pagination {
+        margin: 2em 0 3em 0;
+    }
+}
+
+@media screen and (min-width:1728px) {
+
+    .carrossel__container {
+        display: flex;
+        margin: 0 20vw 3em 20vw;
+        align-items: center;
+    }
+
+    .swiper {
+        width: 50%;
+    }
+
+    .swiper-pagination {
+        margin: 1em 0; 
+    }  
+
+}
